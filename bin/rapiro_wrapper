@@ -4,7 +4,16 @@
 require 'rapiro_wrapper'
 
 
-s = [
+commander = RapiroWrapper::Commander.new('/dev/tty.usbserial-DA00HMG6')
+
+sleep 20
+
+commander.execute!([])
+
+sleep 5
+
+
+sequences = [
   ## param is left: 0..90 or right: 0..90
   RapiroWrapper::Head.new( left: 30 ),
 
@@ -45,10 +54,109 @@ s = [
   RapiroWrapper::Eyes.new('#00ff00')
 ]
 
-p RapiroWrapper::Commander.dryrun(s)
-p RapiroWrapper::Commander.dryrun([])
-#commander = RapiroWrapper::Commander.new('/dev/tty.usbserial-DA00HMG6')
-#commander.execute!(s)
+commander.execute!(sequences)
+
+sleep 5
+
+commander.execute!([])
+
+sleep 5
+
+
+duration = 5
+
+5.times.each do
+
+  commander.execute!([
+    RapiroWrapper::Head.new( left: 10 ),
+    RapiroWrapper::RightSholderRoll.new( up: 160 ),
+    RapiroWrapper::LeftSholderRoll.new( up: 160 ),
+    RapiroWrapper::RightSholderPitch.new( up: 5 ),
+    RapiroWrapper::LeftSholderPitch.new( up: 5 ),
+    RapiroWrapper::RightFootPitch.new( open: 0 ),
+    RapiroWrapper::LeftFootPitch.new( close: 0 ),
+    RapiroWrapper::Eyes.new('#ff0000')
+  ], duration)
+
+  sleep duration * 0.1
+
+  commander.execute!([
+    RapiroWrapper::Head.new( right: 10 ),
+    RapiroWrapper::RightSholderRoll.new( up: 170 ),
+    RapiroWrapper::LeftSholderRoll.new( up: 170 ),
+    RapiroWrapper::RightSholderPitch.new( up: 40 ),
+    RapiroWrapper::LeftSholderPitch.new( up: 40 ),
+    RapiroWrapper::RightFootPitch.new( close: 0 ),
+    RapiroWrapper::LeftFootPitch.new( open: 0 ),
+    RapiroWrapper::Eyes.new('#330000')
+  ], duration)
+
+  sleep duration * 0.1
+
+end
+
+commander.execute!([],10)
+
+sleep 5
+
+
+commander.execute!([
+  RapiroWrapper::Head.new( left: 40 ),
+  RapiroWrapper::Waist.new( right: 40 ),
+  RapiroWrapper::LeftHandGrip.new( hold: 0 ),
+  RapiroWrapper::RightHandGrip.new( hold: 0 ),
+  RapiroWrapper::RightSholderRoll.new( up: 90 ),
+  RapiroWrapper::LeftSholderRoll.new( up: 20 ),
+  RapiroWrapper::LeftFootYaw.new( open: 30 ),
+  RapiroWrapper::RightFootYaw.new( open: 20 ),
+  RapiroWrapper::Eyes.new('#003300')
+], 5)
+
+sleep 1
+
+commander.execute!([
+  RapiroWrapper::Head.new( right: 30 ),
+  RapiroWrapper::Waist.new( left: 30 ),
+  RapiroWrapper::LeftHandGrip.new( hold: 0 ),
+  RapiroWrapper::RightHandGrip.new( hold: 0 ),
+  RapiroWrapper::RightSholderPitch.new( up: 30 ),
+  RapiroWrapper::RightSholderRoll.new( up: 90 ),
+  RapiroWrapper::LeftSholderRoll.new( up: 0 ),
+  RapiroWrapper::LeftFootYaw.new( open: 30 ),
+  RapiroWrapper::RightFootYaw.new( open: 20 ),
+  RapiroWrapper::Eyes.new('#00ff00')
+], 2)
+
+sleep 5
+
+commander.execute!([],10)
+
+
+duration = 7
+
+2.times.each do
+
+  commander.execute!([
+    RapiroWrapper::Head.new( left: 30 )
+  ], duration)
+
+  sleep duration * 0.1
+
+  commander.execute!([
+    RapiroWrapper::Head.new( right: 30 )
+  ], duration)
+
+  sleep duration * 0.1
+
+end
+
+commander.execute!([],10)
+
+sleep 1
+
+
+commander.execute!(sequences, duration)
+
 
 
 

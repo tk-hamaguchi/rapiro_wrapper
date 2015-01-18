@@ -7,6 +7,8 @@ module RapiroWrapper
     end
     def execute!(commands, duration=10)
       @serial.write(sequences(commands, duration))
+    rescue
+      @serial.write('#M0')
     end
 
     def sequences(commands, duration=10)

@@ -1,7 +1,7 @@
 module RapiroWrapper
   class Command
 
-    def initialize(sequences)
+    def initialize(sequences=[])
       @sequences = sequences
     end
 
