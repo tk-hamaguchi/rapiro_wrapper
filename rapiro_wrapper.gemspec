@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = RapiroWrapper::VERSION
   spec.authors       = ["Takahiro HAMAGUCHI"]
   spec.email         = ["tk.hamaguchi@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{A gem providing access to Rapiro with SerialPort.}
+  spec.description   = %q{A gem providing access to Rapiro with SerialPort.}
+  spec.homepage      = "https://github.com/tk-hamaguchi/rapiro_wrapper.git"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

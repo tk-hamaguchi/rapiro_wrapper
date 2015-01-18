@@ -5,19 +5,48 @@ require 'rapiro_wrapper'
 
 
 s = [
-  RapiroWrapper::RightSholderRoll.new( up: 160 ),
-  RapiroWrapper::RightSholderPitch.new( up: 20 ),
-  RapiroWrapper::RightHandGrip.new( open: 0 ),
-  RapiroWrapper::LeftSholderRoll.new( up: 30 ),
-  RapiroWrapper::LeftSholderPitch.new( up: 20 ),
-  RapiroWrapper::LeftHandGrip.new( open: 0 ),
-  RapiroWrapper::RightFootYaw.new( open: 0 ),
-  RapiroWrapper::RightFootPitch.new( open: 0 ),
-  RapiroWrapper::LeftFootYaw.new( close: 0 ),
+  ## param is left: 0..90 or right: 0..90
+  RapiroWrapper::Head.new( left: 30 ),
 
+  ## param is left: 0..90 or right: 0..90
+  RapiroWrapper::Waist.new( right: 30 ),
+
+  ## param is up: 0..180  (default:0)
+  RapiroWrapper::RightSholderRoll.new( up: 160 ),
+
+  ## param is up: 0..90  (default:0)
+  RapiroWrapper::RightSholderPitch.new( up: 20 ),
+
+  ## param is hold: 0..50 or open: 0..50
+  RapiroWrapper::RightHandGrip.new( hold: 0 ),
+
+  ## param is up: 0..180  (default:0)
+  RapiroWrapper::LeftSholderRoll.new( up: 30 ),
+
+  ## param is up: 0..90  (default:0)
+  RapiroWrapper::LeftSholderPitch.new( up: 20 ),
+
+  ## param is hold: 0..50 or open: 0..50
+  RapiroWrapper::LeftHandGrip.new( open: 0 ),
+
+  ## param is close: 0..60 or open: 0..60
+  RapiroWrapper::RightFootYaw.new( open: 30 ),
+
+  ## param is close: 0..40 or open: 0..40
+  RapiroWrapper::RightFootPitch.new( open: 5 ),
+
+  ## param is close: 0..60 or open: 0..60
+  RapiroWrapper::LeftFootYaw.new( close: 20 ),
+
+  ## param is close: 0..40 or open: 0..40
+  RapiroWrapper::LeftFootPitch.new( close: 0 ),
+
+  ## param is web color code for example #000000 or hash
+  RapiroWrapper::Eyes.new('#00ff00')
 ]
 
 p RapiroWrapper::Commander.dryrun(s)
+p RapiroWrapper::Commander.dryrun([])
 #commander = RapiroWrapper::Commander.new('/dev/tty.usbserial-DA00HMG6')
 #commander.execute!(s)
 

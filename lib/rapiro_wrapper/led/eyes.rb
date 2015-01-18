@@ -3,10 +3,10 @@ module RapiroWrapper
     def initialize(param=nil)
       if param.nil?
         @value = '#000080'
-      elsif param.instance_of(Hash) && param.key?(:red) && param.key?(:green) && param.key?(:blue)
-        @value = '#%02x%02x%02x' % param.values_at(:red, :green, :blue)
       elsif param =~ /^#([0-9a-fA-F]{2}){3}$/
         @value = param
+      elsif param.instance_of(Hash) && param.key?(:red) && param.key?(:green) && param.key?(:blue)
+        @value = '#%02x%02x%02x' % param.values_at(:red, :green, :blue)
       else
         raise ArgumentError
       end
