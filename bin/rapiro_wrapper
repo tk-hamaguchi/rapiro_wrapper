@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+
+require 'rapiro_wrapper'
+
+
+s = [
+  RapiroWrapper::RightSholderRoll.new( up: 160 ),
+  RapiroWrapper::RightSholderPitch.new( up: 20 ),
+  RapiroWrapper::RightHandGrip.new( open: 0 ),
+  RapiroWrapper::LeftSholderRoll.new( up: 30 ),
+  RapiroWrapper::LeftSholderPitch.new( up: 20 ),
+  RapiroWrapper::LeftHandGrip.new( open: 0 ),
+  RapiroWrapper::RightFootYaw.new( open: 0 ),
+  RapiroWrapper::RightFootPitch.new( open: 0 ),
+  RapiroWrapper::LeftFootYaw.new( close: 0 ),
+
+]
+
+p RapiroWrapper::Commander.dryrun(s)
+#commander = RapiroWrapper::Commander.new('/dev/tty.usbserial-DA00HMG6')
+#commander.execute!(s)
+
+
+
