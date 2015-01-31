@@ -1,7 +1,7 @@
 module RapiroWrapper
   class ServoMotor
     def initialize
-      raise NotImplementedError
+      fail NotImplementedError
     end
 
     def to_code

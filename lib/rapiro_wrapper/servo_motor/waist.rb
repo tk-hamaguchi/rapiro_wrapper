@@ -6,7 +6,7 @@ module RapiroWrapper
     MAX = 180
 
     def initialize(left: nil, right: nil)
-      raise ArgumentError if left && right
+      fail ArgumentError if left && right
       if left
         @value = DEFAULT + left
       elsif right
@@ -14,7 +14,7 @@ module RapiroWrapper
       else
         @value = DEFAULT
       end
-      raise ArgumentError unless @value.between?(MIN, MAX)
+      fail ArgumentError unless @value.between?(MIN, MAX)
     end
   end
 end

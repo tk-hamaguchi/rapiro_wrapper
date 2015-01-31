@@ -6,6 +6,7 @@ module RapiroWrapper
     MAX = 110
 
     def initialize( hold: nil, open: nil )
+      fail ArgumentError if open && hold
       if hold
         @value = MAX - hold
       elsif open
