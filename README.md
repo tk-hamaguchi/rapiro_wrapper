@@ -6,7 +6,7 @@ A gem providing access to Rapiro with SerialPort.
 
 
 ```ruby
-gem 'rapiro_wrapper', github: 'tk-hamaguchi/rapiro_wrapper'
+gem 'rapiro_wrapper'
 ```
 
 And then execute:
@@ -15,12 +15,8 @@ And then execute:
 
 Or install it yourself as:
 
-```
-# git clone -b master --depth 1 https://github.com/tk-hamaguchi/rapiro_wrapper.git
-# cd rapiro_wrapper/
-# gem build rapiro_wrapper.gemspec
-# gem install rapiro_wrapper-*.gem
-```
+    $ gem install rapiro_wrapper
+
 
 ## Usage1
 
