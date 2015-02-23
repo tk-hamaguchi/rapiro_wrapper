@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-
 RSpec.describe RapiroWrapper::Head do
-
   context 'constants' do
     context 'NO' do
       subject { described_class.const_get(:NO) }
@@ -31,7 +29,7 @@ RSpec.describe RapiroWrapper::Head do
     context 'with both right and left' do
       subject { described_class.code(option) }
       let(:option) { { right: 0, left: 0 } }
-      it { expect{subject}.to raise_error ArgumentError }
+      it { expect { subject }.to raise_error ArgumentError }
     end
 
     context 'with right' do
@@ -39,12 +37,12 @@ RSpec.describe RapiroWrapper::Head do
 
       context '-180' do
         let(:option) { { right: -180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-91' do
         let(:option) { { right: -91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-90' do
@@ -64,14 +62,13 @@ RSpec.describe RapiroWrapper::Head do
 
       context '91' do
         let(:option) { { right: 91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '180' do
         let(:option) { { right: 180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
-
     end
 
     context 'with left' do
@@ -79,12 +76,12 @@ RSpec.describe RapiroWrapper::Head do
 
       context '-180' do
         let(:option) { { left: -180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-91' do
         let(:option) { { left: -91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-90' do
@@ -104,21 +101,20 @@ RSpec.describe RapiroWrapper::Head do
 
       context '91' do
         let(:option) { { left: 91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '180' do
         let(:option) { { left: 180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
-
     end
   end
 
   context 'constructor' do
     context 'without arguments' do
       subject { described_class.new }
-      it { expect{subject}.to_not raise_error }
+      it { expect { subject }.to_not raise_error }
       context '@value' do
         subject { described_class.new.instance_variable_get(:@value) }
         it { is_expected.to eq 90 }
@@ -132,7 +128,7 @@ RSpec.describe RapiroWrapper::Head do
     context 'with both right and left' do
       subject { described_class.new(option).instance_variable_get(:@value) }
       let(:option) { { right: 0, left: 0 } }
-      it { expect{subject}.to raise_error ArgumentError }
+      it { expect { subject }.to raise_error ArgumentError }
     end
 
     context 'with right' do
@@ -140,12 +136,12 @@ RSpec.describe RapiroWrapper::Head do
 
       context '-180' do
         let(:option) { { right: -180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-91' do
         let(:option) { { right: -91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-90' do
@@ -183,14 +179,13 @@ RSpec.describe RapiroWrapper::Head do
 
       context '91' do
         let(:option) { { right: 91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '180' do
         let(:option) { { right: 180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
-
     end
 
     context 'with left' do
@@ -198,12 +193,12 @@ RSpec.describe RapiroWrapper::Head do
 
       context '-180' do
         let(:option) { { left: -180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-91' do
         let(:option) { { left: -91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-90' do
@@ -241,15 +236,13 @@ RSpec.describe RapiroWrapper::Head do
 
       context '91' do
         let(:option) { { left: 91 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '180' do
         let(:option) { { left: 180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
-
     end
   end
-
 end

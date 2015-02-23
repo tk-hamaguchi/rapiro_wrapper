@@ -1,4 +1,5 @@
 module RapiroWrapper
+  # RightSholderRoll class for RAPIRO
   class RightSholderRoll < ServoMotor
     NO = 2
     DEFAULT = 0
@@ -7,7 +8,7 @@ module RapiroWrapper
 
     def initialize(up: DEFAULT)
       @value = up
-      raise ArgumentError unless @value.between?(MIN, MAX)
+      fail ArgumentError unless @value.between?(MIN, MAX)
     end
   end
 end

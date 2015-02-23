@@ -1,4 +1,5 @@
 module RapiroWrapper
+  # Waist class for RAPIRO
   class Waist < ServoMotor
     NO = 1
     DEFAULT = 90

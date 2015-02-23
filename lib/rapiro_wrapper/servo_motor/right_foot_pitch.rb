@@ -1,11 +1,12 @@
 module RapiroWrapper
+  # RightFootPitch class for RAPIRO
   class RightFootPitch < ServoMotor
     NO = 9
     DEFAULT = 90
     MIN = 70
     MAX = 110
 
-    def initialize( close: nil, open: nil )
+    def initialize(close: nil, open: nil)
       fail ArgumentError if open && close
       if close
         @value = MIN + close
@@ -14,7 +15,7 @@ module RapiroWrapper
       else
         @value = DEFAULT
       end
-      raise ArgumentError unless @value.between?(MIN, MAX)
+      fail ArgumentError unless @value.between?(MIN, MAX)
     end
   end
 end

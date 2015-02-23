@@ -1,4 +1,5 @@
 module RapiroWrapper
+  # Head class for RAPIRO
   class Head < ServoMotor
     NO = 0
     DEFAULT = 90

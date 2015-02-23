@@ -1,4 +1,4 @@
-require "rapiro_wrapper/version"
+require 'rapiro_wrapper/version'
 require 'rapiro_wrapper/command'
 require 'rapiro_wrapper/commander'
 require 'rapiro_wrapper/servo_motor'
@@ -16,7 +16,8 @@ require 'rapiro_wrapper/servo_motor/right_foot_pitch'
 require 'rapiro_wrapper/servo_motor/left_foot_pitch'
 require 'rapiro_wrapper/led'
 require 'rapiro_wrapper/led/eyes'
+require 'rapiro_wrapper/body'
 
-
+# RapiroWrapper
 module RapiroWrapper
 end

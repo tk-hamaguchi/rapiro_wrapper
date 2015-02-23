@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-
 RSpec.describe RapiroWrapper::LeftSholderRoll do
-
   context 'constants' do
     context 'NO' do
       subject { described_class.const_get(:NO) }
@@ -33,17 +31,17 @@ RSpec.describe RapiroWrapper::LeftSholderRoll do
 
       context '-180' do
         let(:option) { { up: -180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-90' do
         let(:option) { { up: -90 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-1' do
         let(:option) { { up: -1 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '0' do
@@ -63,21 +61,20 @@ RSpec.describe RapiroWrapper::LeftSholderRoll do
 
       context '181' do
         let(:option) { { up: 181 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '270' do
         let(:option) { { up: 270 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
-
     end
   end
 
   context 'constructor' do
     context 'without arguments' do
       subject { described_class.new }
-      it { expect{subject}.to_not raise_error }
+      it { expect { subject }.to_not raise_error }
       context '@value' do
         subject { described_class.new.instance_variable_get(:@value) }
         it { is_expected.to eq 180 }
@@ -93,17 +90,17 @@ RSpec.describe RapiroWrapper::LeftSholderRoll do
 
       context '-180' do
         let(:option) { { up: -180 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-90' do
         let(:option) { { up: -90 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '-1' do
         let(:option) { { up: -1 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '0' do
@@ -141,16 +138,13 @@ RSpec.describe RapiroWrapper::LeftSholderRoll do
 
       context '181' do
         let(:option) { { up: 181 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
 
       context '270' do
         let(:option) { { up: 270 } }
-        it { expect{subject}.to raise_error ArgumentError }
+        it { expect { subject }.to raise_error ArgumentError }
       end
-
     end
-
   end
-
 end

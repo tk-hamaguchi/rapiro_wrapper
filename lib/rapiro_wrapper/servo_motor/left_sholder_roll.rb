@@ -1,4 +1,5 @@
 module RapiroWrapper
+  # LeftSholderRoll for RAPIRO
   class LeftSholderRoll < ServoMotor
     NO = 5
     DEFAULT = 180
@@ -11,7 +12,7 @@ module RapiroWrapper
       else
         @value = DEFAULT
       end
-      raise ArgumentError unless @value.between?(MIN, MAX)
+      fail ArgumentError unless @value.between?(MIN, MAX)
     end
   end
 end
